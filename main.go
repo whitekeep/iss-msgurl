@@ -18,7 +18,7 @@ func main() {
 	// Create client instance
 	client := goscord.New(&gateway.Options{
 		Token: os.Getenv("BOT_TOKEN"),
-		Intents: gateway.IntentsGuild |
+		Intents: gateway.IntentGuilds |
 			gateway.IntentGuildMembers |
 			gateway.IntentDirectMessages |
 			gateway.IntentGuildMessages |
@@ -71,7 +71,7 @@ func CommandHandler(client *gateway.Session) func(*discord.Interaction) {
 			return
 		}
 
-		// Check if yhe command is test
+		// Check if the command is test
 		if interaction.Data.(discord.ApplicationCommandData).Name != "test" {
 			return
 		}
